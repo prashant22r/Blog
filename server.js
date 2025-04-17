@@ -7,6 +7,11 @@ const app = express();
 const port = 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const path = require('path');
+app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static('css'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
     <title>Profile</title>
 </head>
-<body>
 
-    <h1>Profile Page</h1>
-    <button><a href="/blogs" style="text-decoration: none; color: inherit;">blog-page</a></button>
-    <button><a href="/login" style="text-decoration: none; color: inherit;">logout</a></button>
-    <h2>Welcome, {{username}}</h2>
-    <h2>Your Blogs</h2>
-    <ul>
-        {{#each userblogs}}
-        <li>
-            <span><h2>{{this.title}}</h2></span>
-            <button onclick="deleteBlog('{{this._id}}')">Delete</button>
-            <p>{{this.date}}</p>
-            <p>{{this.content}}</p>
-            <img src="{{this.media}}" alt="blog image" width="300"/>
-        </li>
-        {{else}}
-        <li>No blogs created yet.</li>
-        {{/each}}
-    </ul>
+<body>
+    <video autoplay muted loop id="bgVideo">
+        <source src="/vid/bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="nav">
+            <div class="heading">
+                <h2>Welcome, <img src="/img/user.png" alt=""> {{username}}</h2>
+            </div>
+            <div class="btns">
+                <button style="background: transparent; border: none;"><a href="/blogs" style="text-decoration: none; color: inherit;"><img src="/img/home.png" alt="" style="height: 40px;"></a></button>
+                <button style="position: relative; margin-left: 10px; background: transparent; border: none;"><a href="/login" style="text-decoration: none; color: inherit;"><img src="/img/log-out.png" alt="" style="height: 40px;"></a></button>
+            </div>
+        </div>
+
+        <div class="blogs">
+
+            <ul>
+                {{#each userblogs}}
+                <li>
+                    <h2 style="margin-bottom: 30px; font-size: 30px; font-weight: 600;">{{this.title}}</h2>
+                    <p>{{this.content}}</p>
+                    <p style="margin-top: 30px;">{{this.date}}</p>
+                    <div class="bin">
+                        <button onclick="deleteBlog('{{this._id}}')"><img src="/img/bin.png" alt=""></button>
+                        <hr style="margin-top: 30px; width: 800px">
+                    </div>
+                    <img src="{{this.media}}" alt="blog image" width="300" />
+                </li>
+                {{else}}
+                <li>No blogs created yet.</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 
 
     <script>
@@ -35,7 +53,7 @@
 
             if (response.ok) {
                 alert('Blog deleted successfully');
-                
+
             } else {
                 alert('Error deleting blog');
             }

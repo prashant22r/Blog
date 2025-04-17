@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/blogs.css">
     <title>Blog Posts</title>
 </head>
+
 <body>
-    <h1>All Blog Posts</h1>
-    
-    
-
-    <button><a href="/create-blog" style="text-decoration: none; color: inherit;">Create Blog</a></button>
-    <button><a href="/profile" style="text-decoration: none; color: inherit;">Profile</a></button>
-    <button><a href="/login" style="text-decoration: none; color: inherit;">Login</a></button>    
-    <button><a href="/signup" style="text-decoration: none; color: inherit;">Signup</a></button>    
-    <form action="/blogs" method="GET">
-        <input type="text" name="search" placeholder="Search by title or author" value="{{searchQuery}}">
-        <button type="submit">Search</button>
-    </form>
-
-    {{#each blogs}} 
-        <div>
-            <h2><strong>{{author}}</strong></h2>
-            <h3>{{title}}</h3>
-            <p>{{content}}</p>
-            <p><strong>Date:</strong> {{date}}</p>
-            <img src="{{media}}" alt="Blog media" width="300">
+    <video autoplay muted loop id="bgVideo">
+        <source src="/vid/bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="nav">
+            <h1 style="text-decoration: underline;">Blogify</h1>
+            <div class="btns">
+                <button><a href="/create-blog" style="text-decoration: none; color: inherit;">Create Blog</a></button>
+                <button><a href="/profile" style="text-decoration: none; color: inherit;">Profile</a></button>
+                <button><a href="/login" style="text-decoration: none; color: inherit;">Login</a></button>
+                <button><a href="/signup" style="text-decoration: none; color: inherit;">Signup</a></button>
+            </div>
         </div>
-        <hr>
-    {{else}}
-        <p>No blogs found matching your search.</p> 
-    {{/each}}
+        <form action="/blogs" method="GET" class="search">
+            <input type="text" name="search" placeholder="Search by title or author" value="{{searchQuery}}" style="padding: 5px; border-radius: 8px;">
+            <button type="submit" style="background: transparent; border: none;"><img src="/img/search.png" alt="" style="height: 25px; cursor: pointer; position: relative; top: 5px"></button>
+        </form>
+        <div class="blogs">
+            {{#each blogs}}
+            <div>
+                <img src="/img/user.png" alt="" style="height: 20px; position:relative; top:5px;">
+                <small style="margin-left: 5px;">{{author}}</small><br><br>
+                <h3>{{title}}</h3><br>
+                <p>{{content}}</p><br>
+                {{date}}</p><hr style="position: relative; top: 15px">
+            </div>
+            <div class="blog-img">
+                <img src="{{media}}" alt="Blog media" width="300">
+            </div>
+            <hr>
+            {{else}}
+            <p>No blogs found matching your search.</p>
+            {{/each}}
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}   
+#bgVideo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    color: white;
+}
+.home button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.home img{
+    height: 50px;
+}
+.create-blog{
+    width: 500px;
+    height: 600px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    position: relative;
+    left: 130px;
+    top: 80px;
+    font-size: 23px;
+}
+input[type="text"]{
+    width: 300px;
+    height: 25px;
+}
+input[type="url"]{
+    width: 300px;
+    height: 25px;
+}
+textarea{
+    width: 300px;
+    height: 100px;
+}
+.sub-btn button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 100px;
+    top: 30px;
+}
+.sub-btn img{
+    height: 80px;
+}

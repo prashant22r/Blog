@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}
+#bgVideo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+.container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h1{
+    color: white;
+}
+.nav{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    gap: 800px;
+}
+.blogs{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    right: 200px;
+    align-items: center;
+    align-content: flex-start;
+    color: white;
+    width: 400px;
+    margin-top: 100px;
+    text-align: justify;
+}
+.blogs h3{
+    font-size: 30px;
+    font-weight: 600;
+}
+.blog-img img{
+    position: relative;
+    left: 500px;
+    bottom: 160px;
+    border-radius: 10px;
+}
+.search{
+    position: relative;
+    bottom: 30px;
+}
+.search input[type="text"]{
+    width: 200px;
+}
+.btns button{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
