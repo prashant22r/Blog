@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>All Blog Posts</h1>
+    <button><a href="/create-blog" style="text-decoration: none; color: inherit;">create-blog</a></button>
+    <button><a href="/profile" style="text-decoration: none; color: inherit;">Profile</a></button>
+    <button><a href="/login" style="text-decoration: none; color: inherit;">Login</a></button>    
+    <button><a href="/signup" style="text-decoration: none; color: inherit;">Signup</a></button>    
+    {{#each blo}}
+        <div>
+            <h2><strong> {{author}}</strong></h2>
+            <h3>{{title}}</h3>
+            <p>{{content}}</p>
+            <p><strong>Date:</strong> {{date}}</p>
+            <img src="{{media}}" alt="Blog media" width="300">
+        </div>
+        <hr>
+    {{/each}}
+</body>
+</html>

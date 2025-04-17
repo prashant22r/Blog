@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+
+    <h1>Profile Page</h1>
+    <button><a href="/blogs" style="text-decoration: none; color: inherit;">blog-page</a></button>
+    <button><a href="/login" style="text-decoration: none; color: inherit;">logout</a></button>
+    <h2>Welcome, {{username}}</h2>
+    <h2>Your Blogs</h2>
+    <ul>
+        {{#each userblogs}}
+        <li>
+            <span><h2>{{this.title}}</h2></span>
+            <button onclick="deleteBlog('{{this._id}}')">Delete</button>
+            <p>{{this.date}}</p>
+            <p>{{this.content}}</p>
+            <img src="{{this.media}}" alt="blog image" width="300"/>
+        </li>
+        {{else}}
+        <li>No blogs created yet.</li>
+        {{/each}}
+    </ul>
+
+
+    <script>
+        async function deleteBlog(id) {
+            const response = await fetch(`/profile/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                alert('Blog deleted successfully');
+                
+            } else {
+                alert('Error deleting blog');
+            }
+        }
+    </script>
+</body>
+
+</html>
