@@ -115,11 +115,19 @@ app.post('/create-blog', async (req, res) => {
 });
 
 app.get('/blogs', async (req, res) => {
+    const searchQuery = req.query.search || ''; 
     try {
-        const blo = await Blog.find();
-        res.render('blog', { blo }); 
+        
+        const blogs = await Blog.find({
+            $or: [
+                { title: { $regex: searchQuery, $options: 'i' } }, 
+                { author: { $regex: searchQuery, $options: 'i' } }  
+            ]
+        });
+        res.render('blog', { blogs, searchQuery }); 
     } catch (err) {
-        console.log('Error:', err);
+        console.error('Error fetching blogs:', err);
+        res.send('No search found');
     }
 });
 
